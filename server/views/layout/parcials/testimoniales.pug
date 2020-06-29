@@ -1,0 +1,11 @@
+blockquote.text-center ANECDOTAS UNICAS CONTADAS POR NUESTROS CLIENTES
+.row.testimoniales    
+    each experiencia in testimoniales
+        .col-md-6.col-lg-4.mb-4
+            .card
+                .card-body
+                    blockquote.blockquote
+                        p.mb-0
+                            | #{experiencia.testimonio}
+                        footer.miclase
+                            | #{experiencia.nombre}

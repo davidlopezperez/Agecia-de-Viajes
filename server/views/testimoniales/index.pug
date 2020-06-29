@@ -1,0 +1,28 @@
+extends ../layout/index
+block contenido
+    main.container.mt-5
+        h1.text-center #{pagina}
+        .row
+            .col-md-12
+                
+                include ../layout/parcials/testimoniales
+                
+            .col-md-12
+                h2.text-center Agrega una experiencia
+                if(errores)
+                    each error in errores
+                        .alert.alert-danger.text-center=error.mensaje
+                .row.justify-content-center
+                    .col-md-8
+                        form(action="/testimoniales", method="POST")
+                            .form-group
+                                label(for="nombre") Nombre
+                                input(id="nombre", class="form-control", type="text", placeholder="Escribe tu nombre", name="nombre", value=nombre)
+                            .form-group
+                                label(for="correo") Correo Electrónico
+                                input(id="correo", class="form-control", type="email", placeholder="Dirección de correo electrónico", name="correo", value=correo)
+                            .form-group
+                                label(for="testimonio") Cuentanos tu experiencia
+                                textarea(id="testimonio", class="form-control", rows="6", placeholder="Cuentanos tu experiencia", name="testimonio")= testimonio
+                            input.btn.btn-success.btn-block(type="submit", value="Enviar")
+                            input.btn.btn-danger.btn-block(type="submit", value="Borrar")
